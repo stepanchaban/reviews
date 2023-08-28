@@ -59,8 +59,19 @@ function showPerson(person) {
 }
 
 // show next person
-
 nextBtn.addEventListener('click', () => {
   currentItem++;
-  showPerson(currentItem);
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
+  }
+  showPerson();
+});
+
+// show prev person
+prevBtn.addEventListener('click', () => {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson();
 });
